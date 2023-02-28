@@ -7,3 +7,4 @@ project/metals.sbt
 project/build.properties
 project/project
 project/target
+.bloop

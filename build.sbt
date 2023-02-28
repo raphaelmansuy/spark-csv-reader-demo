@@ -1,12 +1,17 @@
 
 val version : String = "2.12"
-val zioVersion = "2.0.4"
 
-scalaVersion := "2.12.15"
+val zioVersion = "2.0.9"
+val sparkVersion = "3.3.2"
 
+scalaVersion := "2.12.17"
 
-libraryDependencies += "dev.zio" % s"zio_2.12" % "2.0.4"
-libraryDependencies += "dev.zio" % "zio-test_2.12" % "2.0.4" % "test"
+libraryDependencies ++= Seq(
+  "org.apache.spark" %% "spark-core" % sparkVersion ,
+  "org.apache.spark" %% "spark-sql" % sparkVersion,
+  "dev.zio" % s"zio_${scalaBinaryVersion.value}" % zioVersion,
+  "dev.zio" % s"zio-test_${scalaBinaryVersion.value}" % zioVersion % "test"
+)
 
 
 lazy val root = (project in file("."))
